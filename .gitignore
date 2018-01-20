@@ -57,3 +57,14 @@ typings/
 # dotenv environment variables file
 .env
 
+# Lock files
+package-lock.json
+
+# Next
+.next
+out
+
+# Gun
+.sessionStorage
+.localStorage
+key_storage

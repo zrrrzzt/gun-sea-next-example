@@ -4,8 +4,6 @@
 
 # gun-sea-next-example
 
-WORK IN PROGRESS - MIGHT NOT WORK AT ALL
-
 Example app with [GUN/SEA](https://github.com/amark/gun) and [Next.js](https://github.com/zeit/next.js)
 
 ## Setup

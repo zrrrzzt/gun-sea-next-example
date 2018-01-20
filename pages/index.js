@@ -3,8 +3,9 @@ import Layout from '../components/Layout'
 import Gun from 'gun/gun'
 import SEA from 'sea-canon'
 Gun.SEA = SEA
-const gun = new Gun('https://gunjs.herokuapp.com/gun')
-const user = gun.user && gun.user()
+// const gun = new Gun('https://gunjs.herokuapp.com/gun')
+const gun = new Gun('http://localhost:8000/gun')
+const user = gun.user()
 
 export default class Index extends React.Component {
   constructor (props) {
@@ -22,29 +23,37 @@ export default class Index extends React.Component {
 
   async componentDidMount () {
     gun.on('auth', () => {
-      this.updateNumber()
+      console.log('auth happened')
+      user.on(() => {
+        this.updateNumber()
+      })
     })
   }
 
   addOne () {
+    console.log('adds one')
     const number = this.state.number || 0
     const newNumber = number + 1
     user.get('list').put({number: newNumber})
   }
 
   subtractOne () {
+    console.log('subtracts one')
     const number = this.state.number || 0
     const newNumber = number - 1
     user.get('list').put({number: newNumber})
   }
 
   updateNumber () {
-    user.get('list').val(data => {
-      this.setState({number: data && data.number ? data.number : 0})
+    user.get('list').map().val(data => {
+      console.log('updateNumber')
+      console.log(`This is the data: ${data}`)
+      this.setState({number: data || 0})
     })
   }
 
   doLogin (e) {
+    e.preventDefault()
     const userField = document.getElementById('userField')
     const passField = document.getElementById('passField')
     user.auth(userField.value, passField.value, data => {
@@ -57,21 +66,19 @@ export default class Index extends React.Component {
           this.login({user: userField.value, pass: passField.value})
         })
       } else {
+        console.log('logged in')
+        console.log(data)
         this.setState({loggedIn: true})
-        gun.on('auth', () => {
-          this.updateNumber()
-        })
       }
     })
   }
 
   login (data) {
     console.log('login...')
-    user.auth(data.user, data.pass, () => {
+    user.auth(data.user, data.pass, (result) => {
+      console.log('login ok')
+      console.log(result)
       this.setState({loggedIn: true})
-      gun.on('auth', () => {
-        this.updateNumber()
-      })
     })
   }
 
@@ -79,7 +86,7 @@ export default class Index extends React.Component {
     return (
       <Layout>
         <div>
-          <h1>gun Next.js example</h1>
+          <h1>gun Next.js SEA example</h1>
           <h2>{this.state.number}</h2>
           {this.state.loggedIn === true
           ? <div>
@@ -87,9 +94,11 @@ export default class Index extends React.Component {
             <button onClick={this.addOne}>Add 1</button>
           </div>
           : <div>
+            <form onSubmit={this.doLogin}>
               <input type='text' id='userField' placeholder='Username' /><br />
               <input type='password' id='passField' placeholder='Password' /><br />
-              <button onClick={this.doLogin}>Login</button>
+              <button type='submit'>Login</button>
+            </form>
           </div>
           }
         </div>
@@ -116,12 +125,20 @@ export default class Index extends React.Component {
               margin: 10px;
               cursor: pointer;
             }
+
             button:focus {
               outline:0;
             }
             
             button:active {
               outline: 0;
+            }
+
+            input {
+              width: 250px;
+              height: 40px;
+              margin-bottom: 10px;
+              font-size: 20px;
             }
           `}
         </style>

@@ -3,8 +3,7 @@ import Layout from '../components/Layout'
 import Gun from 'gun/gun'
 import SEA from 'sea-canon'
 Gun.SEA = SEA
-// const gun = new Gun('https://gunjs.herokuapp.com/gun')
-const gun = new Gun('http://localhost:8000/gun')
+const gun = new Gun('https://gunjs.herokuapp.com/gun')
 const user = gun.user()
 
 export default class Index extends React.Component {

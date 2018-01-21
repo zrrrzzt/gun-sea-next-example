@@ -27,7 +27,11 @@ Visit [localhost:3000](http://localhost:3000) to see it.
 ## What to expect
 
 You can login with almost any username and password. If it doesn't exist the app will create it for you.
-As a logged in user you can increase/decrease the number. 
+As a logged in user you can increase/decrease the number.
+
+## Explore further
+
+Open another browser at [localhost:3000](http://localhost:3000) and loginwith the same username/password. The numbers should sync between browsers.
 
 ## Export
 

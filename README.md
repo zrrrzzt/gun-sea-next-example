@@ -22,7 +22,12 @@ Start the dev server
 $ npm run dev
 ```
 
-Visit [localhost:3000](http://localhost:3000) to see it
+Visit [localhost:3000](http://localhost:3000) to see it.
+
+## What to expect
+
+You can login with almost any username and password. If it doesn't exist the app will create it for you.
+As a logged in user you can increase/decrease the number. 
 
 ## Export
 

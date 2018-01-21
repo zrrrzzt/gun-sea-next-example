@@ -1,6 +1,6 @@
 {
   "name": "gun-sea-next-example",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Example app with GUN/SEA and Next.js",
   "private": true,
   "license": "MIT",

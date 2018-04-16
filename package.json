@@ -44,7 +44,7 @@
     "gun": "0.9.92",
     "next": "5.0.0",
     "react": "16.2.0",
-    "react-dom": "16.2.0",
+    "react-dom": "16.3.2",
     "sea-canon": "git+https://github.com/zrrrzzt/sea-canon.git"
   },
   "devDependencies": {

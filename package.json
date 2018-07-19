@@ -43,8 +43,8 @@
   "dependencies": {
     "gun": "0.9.9994",
     "next": "6.0.3",
-    "react": "16.4.0",
-    "react-dom": "16.4.0",
+    "react": "16.4.1",
+    "react-dom": "16.4.1",
     "sea-canon": "git+https://github.com/zrrrzzt/sea-canon.git"
   },
   "devDependencies": {

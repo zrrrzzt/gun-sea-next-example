@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/zrrrzzt/gun-sea-next-example#readme",
   "engines": {
-    "node": ">=8.9.4"
+    "node": ">=10.14.2"
   },
   "scripts": {
     "test": "standard && nsp check && ava",

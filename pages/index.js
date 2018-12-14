@@ -33,21 +33,21 @@ export default class Index extends React.Component {
     console.log('adds one')
     const number = this.state.number || 0
     const newNumber = number + 1
-    user.get('list').put({number: newNumber})
+    user.get('list').put({ number: newNumber })
   }
 
   subtractOne () {
     console.log('subtracts one')
     const number = this.state.number || 0
     const newNumber = number - 1
-    user.get('list').put({number: newNumber})
+    user.get('list').put({ number: newNumber })
   }
 
   updateNumber () {
     user.get('list').map().val(data => {
       console.log('updateNumber')
       console.log(`This is the data: ${data}`)
-      this.setState({number: data || 0})
+      this.setState({ number: data || 0 })
     })
   }
 
@@ -62,12 +62,12 @@ export default class Index extends React.Component {
           if (ack.err) {
             return
           }
-          this.login({user: userField.value, pass: passField.value})
+          this.login({ user: userField.value, pass: passField.value })
         })
       } else {
         console.log('logged in')
         console.log(data)
-        this.setState({loggedIn: true})
+        this.setState({ loggedIn: true })
       }
     })
   }
@@ -77,7 +77,7 @@ export default class Index extends React.Component {
     user.auth(data.user, data.pass, (result) => {
       console.log('login ok')
       console.log(result)
-      this.setState({loggedIn: true})
+      this.setState({ loggedIn: true })
     })
   }
 
@@ -88,17 +88,17 @@ export default class Index extends React.Component {
           <h1>gun Next.js SEA example</h1>
           <h2>{this.state.number}</h2>
           {this.state.loggedIn === true
-          ? <div>
-            <button onClick={this.subtractOne}>Subtract 1</button>
-            <button onClick={this.addOne}>Add 1</button>
-          </div>
-          : <div>
-            <form onSubmit={this.doLogin}>
-              <input type='text' id='userField' placeholder='Username' /><br />
-              <input type='password' id='passField' placeholder='Password' /><br />
-              <button type='submit'>Login</button>
-            </form>
-          </div>
+            ? <div>
+              <button onClick={this.subtractOne}>Subtract 1</button>
+              <button onClick={this.addOne}>Add 1</button>
+            </div>
+            : <div>
+              <form onSubmit={this.doLogin}>
+                <input type='text' id='userField' placeholder='Username' /><br />
+                <input type='password' id='passField' placeholder='Password' /><br />
+                <button type='submit'>Login</button>
+              </form>
+            </div>
           }
         </div>
         <style jsx>

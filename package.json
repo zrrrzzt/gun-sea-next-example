@@ -41,7 +41,7 @@
     "example"
   ],
   "dependencies": {
-    "gun": "0.2019.915",
+    "gun": "0.2019.930",
     "next": "9.0.8",
     "react": "16.10.1",
     "react-dom": "16.10.1",

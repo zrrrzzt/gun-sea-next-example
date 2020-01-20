@@ -48,7 +48,7 @@
     "sea-canon": "git+https://github.com/zrrrzzt/sea-canon.git"
   },
   "devDependencies": {
-    "ava": "2.4.0",
+    "ava": "3.0.0",
     "babel-eslint": "10.0.3",
     "coveralls": "3.0.9",
     "nyc": "15.0.0",
